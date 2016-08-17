@@ -17,7 +17,8 @@ export default class TopBar extends React.Component {
     this.state = { cartOpen: false }
   }
 
-  handleCartClose() {
+
+  toggleCart() {
     this.setState({ cartOpen: !this.state.cartOpen })
   }
 
@@ -26,7 +27,7 @@ export default class TopBar extends React.Component {
       <AppBar
         title={Object.keys(this.props.cart).length}
         iconElementLeft={
-          <IconButton onClick={this.handleCart}>
+          <IconButton onClick={this.toggleCart.bind(this)}>
             <CartIcon/>
           </IconButton>
         }
@@ -34,7 +35,7 @@ export default class TopBar extends React.Component {
         <Cart
           items={this.props.cart}
           isOpen={this.state.cartOpen}
-          handleClose={this.handleCartClose.bind(this)}
+          handleClose={this.toggleCart.bind(this)}
           addToCart={this.handleAdd}
           removeFromCart={this.handleRemove}
           clearCart={this.handleClear}

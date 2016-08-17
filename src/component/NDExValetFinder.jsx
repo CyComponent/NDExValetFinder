@@ -17,6 +17,7 @@ export default class NDExValetFinder extends React.Component {
       height: '100%',
       overflow: 'hidden'
     },
+    defaultQuery: "",
     theme: {},
     filters: [],
     visualizations: [],
@@ -61,8 +62,11 @@ export default class NDExValetFinder extends React.Component {
             handleLoad={this.handleLoad.bind(this)}
           />
           <NDExNetworkSearch
+            style={{ height: '94%' }}
             filters={this.props.filters}
             visualizations={this.props.visualizations}
+            defaultQuery={this.props.defaultQuery}
+            theme={this.props.theme}
             cart={this.state.items}
             addToCart={this.handleAdd.bind(this)}
             removeFromCart={this.handleRemove.bind(this)}

@@ -15,6 +15,10 @@ export default class Cart extends React.Component {
     this.handleClose()
   }
 
+  handleRemove(id) {
+    this.props.removeFromCart(id)
+  }
+
   render() {
     const actions = [
       <FlatButton
@@ -59,7 +63,7 @@ export default class Cart extends React.Component {
                      <FlatButton
                        label={this.props.items[Id].name}
                        labelPosition="after"
-                       onClick={this.handleRemove.bind(this, Id)}
+                       onClick={this.props.handleRemove.bind(this, Id)}
                        icon={<HighlightOff/>}
                      />
                    </td>
