@@ -12,6 +12,10 @@ export default class NetworkCart extends React.Component {
     this.props.handleClose()
   }
 
+  handleClear() {
+    this.props.clearCart()
+  }
+
   handleRemove(id) {
     this.props.removeFromCart(id)
   }
@@ -21,7 +25,7 @@ export default class NetworkCart extends React.Component {
       <FlatButton
         label="Clear Networks"
         primary={true}
-        onClick={this.handleClear}
+        onClick={this.handleClear.bind(this)}
       />,
       <FlatButton
         label="Load Networks"
