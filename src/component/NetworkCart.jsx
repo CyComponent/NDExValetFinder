@@ -3,16 +3,13 @@ import Dialog       from 'material-ui/Dialog'
 import FlatButton   from 'material-ui/FlatButton'
 import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
 
-export default class Cart extends React.Component {
+export default class NetworkCart extends React.Component {
 
-  handleClose = () => {
-    this.props.handleClose()
-  }
 
   handleLoad(singleCatagory) {
-    this.props.onLoad(this.props.items, singleCatagory)
-    this.props.handleClear()
-    this.handleClose()
+    this.props.onLoad(singleCatagory)
+    this.props.clearCart()
+    this.props.handleClose()
   }
 
   handleRemove(id) {
@@ -63,7 +60,7 @@ export default class Cart extends React.Component {
                      <FlatButton
                        label={this.props.items[Id].name}
                        labelPosition="after"
-                       onClick={this.props.handleRemove.bind(this, Id)}
+                       onClick={this.handleRemove.bind(this, Id)}
                        icon={<HighlightOff/>}
                      />
                    </td>

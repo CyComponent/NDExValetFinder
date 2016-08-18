@@ -8,7 +8,7 @@ import LogoutIcon  from 'material-ui/svg-icons/action/exit-to-app';
 import PopOver     from 'material-ui/Popover'
 import Dialog      from 'material-ui/Dialog'
 import Badge       from 'material-ui/Badge';
-import Cart        from './Cart'
+import NetworkCart        from './NetworkCart'
 
 export default class TopBar extends React.Component {
 
@@ -32,14 +32,14 @@ export default class TopBar extends React.Component {
           </IconButton>
         }
       >
-        <Cart
+        <NetworkCart
+          onLoad={this.props.onLoad}
           items={this.props.cart}
           isOpen={this.state.cartOpen}
           handleClose={this.toggleCart.bind(this)}
-          addToCart={this.handleAdd}
-          removeFromCart={this.handleRemove}
-          clearCart={this.handleClear}
-          handleLoad={this.handleLoad}
+          addToCart={this.props.addToCart}
+          removeFromCart={this.props.removeFromCart}
+          clearCart={this.props.clearCart}
         />
       </AppBar>
     )

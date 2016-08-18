@@ -55,11 +55,11 @@ export default class NDExValetFinder extends React.Component {
       <MuiThemeProvider muiTheme={theme}>
         <div style={this.props.style}>
           <CartBar
+            onLoad={this.handleLoad.bind(this)}
             cart={this.state.items}
             addToCart={this.handleAdd.bind(this)}
             removeFromCart={this.handleRemove.bind(this)}
             clearCart={this.handleClear.bind(this)}
-            handleLoad={this.handleLoad.bind(this)}
           />
           <NDExNetworkSearch
             style={{ height: '94%' }}
