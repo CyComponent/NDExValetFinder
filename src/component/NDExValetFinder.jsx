@@ -4,7 +4,7 @@ import FlatButton   from 'material-ui/FlatButton'
 import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
 
 import CartBar from './CartBar'
-import NDExNetworkSearch from 'ndex-network-search'
+import { NDExNetworkSearch } from 'ndex-search-ui'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
