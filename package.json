@@ -41,7 +41,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.0",
-    "ndex-search-ui": "0.0.20",
+    "ndex-search-ui": "0.0.23",
     "eslint": "^2.0.0",
     "file-loader": "^0.8.5",
     "immutable": "^3.7.6",
