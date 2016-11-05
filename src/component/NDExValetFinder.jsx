@@ -4,7 +4,11 @@ import FlatButton   from 'material-ui/FlatButton'
 import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
 
 import CartBar from './CartBar'
+import CommandBar from './CommandBar'
+
 import { NDExNetworkSearch } from 'ndex-search-ui'
+
+
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -71,6 +75,11 @@ export default class NDExValetFinder extends React.Component {
             addToCart={this.handleAdd.bind(this)}
             removeFromCart={this.handleRemove.bind(this)}
             clearCart={this.handleClear.bind(this)}
+          />
+          <CommandBar
+            onLoad={this.handleLoad.bind(this)}
+            cart={this.state.items}
+            onClose={this.props.onClose}
           />
         </div>
       </MuiThemeProvider>
