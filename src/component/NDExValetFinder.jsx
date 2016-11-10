@@ -1,13 +1,9 @@
 import React        from 'react'
-import Dialog       from 'material-ui/Dialog'
-import FlatButton   from 'material-ui/FlatButton'
-import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
 
 import CartBar from './CartBar'
 import CommandBar from './CommandBar'
 
-import { NDExNetworkSearch } from 'ndex-search-ui'
-
+import { NDExNetworkSearch } from 'ndex-search-ui2'
 
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -19,7 +15,6 @@ export default class NDExValetFinder extends React.Component {
     style: {
       width: '100%',
       height: '100%',
-      overflow: 'hidden'
     },
     defaultQuery: "",
     theme: {},
@@ -55,10 +50,20 @@ export default class NDExValetFinder extends React.Component {
 
   render() {
     const theme = getMuiTheme(this.props.theme)
+
+    const flexContainer = {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden'
+    }
+
     return (
       <MuiThemeProvider muiTheme={theme}>
-        <div style={this.props.style}>
+        <div style={flexContainer}>
           <CartBar
+            style={{width: '100%'}}
             onLoad={this.handleLoad.bind(this)}
             cart={this.state.items}
             addToCart={this.handleAdd.bind(this)}
@@ -66,7 +71,7 @@ export default class NDExValetFinder extends React.Component {
             clearCart={this.handleClear.bind(this)}
           />
           <NDExNetworkSearch
-            style={{ height: '94%' }}
+            style={{width: '100%', height: '30em', flexGrow: 2, overflow: 'hidden' }}
             filters={this.props.filters}
             visualizations={this.props.visualizations}
             defaultQuery={this.props.defaultQuery}
@@ -77,6 +82,7 @@ export default class NDExValetFinder extends React.Component {
             clearCart={this.handleClear.bind(this)}
           />
           <CommandBar
+            style={{height: '4em', width: '100%', background: '#BBBBBB'}}
             onLoad={this.handleLoad.bind(this)}
             cart={this.state.items}
             onClose={this.props.onClose}

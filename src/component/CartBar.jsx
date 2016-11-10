@@ -1,14 +1,9 @@
 import React       from 'react'
 import AppBar      from 'material-ui/AppBar'
-import FlatButton  from 'material-ui/FlatButton'
 import IconButton  from 'material-ui/IconButton';
 import CartIcon    from 'material-ui/svg-icons/action/shopping-cart';
-import AccountIcon from 'material-ui/svg-icons/action/account-circle';
-import LogoutIcon  from 'material-ui/svg-icons/action/exit-to-app';
-import PopOver     from 'material-ui/Popover'
-import Dialog      from 'material-ui/Dialog'
-import Badge       from 'material-ui/Badge';
-import NetworkCart        from './NetworkCart'
+import NetworkCart from './NetworkCart'
+
 
 export default class TopBar extends React.Component {
 
