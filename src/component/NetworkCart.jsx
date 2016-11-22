@@ -1,10 +1,11 @@
-import React        from 'react'
-import Dialog       from 'material-ui/Dialog'
-import FlatButton   from 'material-ui/FlatButton'
+import React, {Component} from 'react'
+import Dialog from 'material-ui/Dialog'
+import RaisedButton from 'material-ui/RaisedButton'
+import FlatButton from 'material-ui/FlatButton'
 import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
 
-export default class NetworkCart extends React.Component {
 
+export default class NetworkCart extends Component {
 
   handleLoad(singleCatagory) {
     this.props.onLoad(singleCatagory)
@@ -20,28 +21,46 @@ export default class NetworkCart extends React.Component {
     this.props.removeFromCart(id)
   }
 
+  buttonState = () => {
+    const networkCount = Object.keys(this.props.items).length
+    if(networkCount === 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   render() {
+    const buttonStyle = {
+      marginRight: '0.4em'
+    }
+
     const actions = [
-      <FlatButton
-        label="Clear Networks"
-        primary={true}
-        onClick={this.handleClear.bind(this)}
-      />,
-      <FlatButton
-        label="Load Networks"
+      <RaisedButton
+        label="Load"
         secondary={true}
+        disabled={this.buttonState()}
         onClick={this.handleLoad.bind(this, false)}
+        style={buttonStyle}
       />,
-      <FlatButton
-        label="Load Networks as single collection"
+      <RaisedButton
+        label="Load as a collection"
         secondary={true}
+        disabled={this.buttonState()}
         onClick={this.handleLoad.bind(this, true)}
+        style={buttonStyle}
       />,
-      <FlatButton
-        label="Close Cart"
+      <RaisedButton
+        label="Clear"
         primary={true}
-        keyboardFocused={true}
+        disabled={this.buttonState()}
+        onClick={this.handleClear.bind(this)}
+        style={buttonStyle}
+      />,
+      <RaisedButton
+        label="Close"
         onClick={this.props.handleClose}
+        style={buttonStyle}
       />
     ]
     return (
@@ -56,7 +75,8 @@ export default class NetworkCart extends React.Component {
         >
           {(Object.keys(this.props.items).length == 0) ?
             <p>Your shopping cart is empty.</p> :
-            <table>
+
+            <table style={{marginTop: '0.5em'}}>
               <tbody>
                 {Object.keys(this.props.items).map((Id) => (
                  <tr>

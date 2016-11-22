@@ -3,7 +3,7 @@ import React        from 'react'
 import CartBar from './CartBar'
 import CommandBar from './CommandBar'
 
-import { NDExNetworkSearch } from 'ndex-search-ui2'
+import { NDExNetworkSearch } from 'ndex-search-ui'
 
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
